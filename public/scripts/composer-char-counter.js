@@ -9,31 +9,9 @@
 // ${`textBox`}.on{}
 $(document).ready(function () {
 
-  // $(document).click(function (event) {
-  //   console.log("clicked: " + event.target);
-  // });
-
-  // $('textarea').blur(function() {
-  //   console.log('blur');
-  //   })
-
-  // $('textarea').keydown(function () {
-  //   console.log('keydown');
-  // })
-
-  // $('textarea').keyup(function() {
-  //   console.log('keyup');
-  //   })
-
-  // $('textarea').keypress(function() {
-  //   console.log('keypress');
-  //   })
-
-  // $('textarea').change(function() {
-  //   console.log('change');
-  //   })
-
   $('textarea').on('input', function () {
+    $(".isa_error_none").slideUp("slow");
+    $(".isa_error_long").slideUp("slow");
     let counterText = 140 - ((this).value).length;
     let counterLocation =  $(this).parent().parent().find('.counter');
 

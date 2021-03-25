@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
   <link rel="stylesheet" href="/styles/tweet-container.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/error-msg.css" type="text/css" />
 
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -58,8 +59,15 @@
       <h2>Compose Tweet</h2>
       <form method="POST" action='/tweets'>
 
-        <!-- <label for="tweet-text">What are you humming about?</label> -->
-
+        <div class="isa_error_none">
+          <i class="fa fa-times-circle"></i>
+          "Tweet is not present"
+       </div>
+       
+       <div class="isa_error_long">
+        <i class="fa fa-times-circle"></i>
+        "Tweet is too long"
+     </div> 
 
         <div class="textarea">
           <textarea name="text" placeholder="What are you humming about?" id="tweet-text"></textarea>
