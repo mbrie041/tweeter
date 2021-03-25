@@ -8,18 +8,47 @@
 
 $(document).ready(function () {
 
-  //tweet submission function
-  $('form').on('submit', function (event) {
+  const tweetData = [];
+
+  //tweet submitted input to /tweets 
+  const submitTweet = (event, input) => {
     event.preventDefault();
     console.log('Button clicked, performing ajax call...');
 
-    const data = $(this).serialize();
+    const errMsg = dataValidator(input);
 
-    $.post('/tweets', data).then(function () {
-      console.log("Outputting something.");
-      $('#tweets-container').trigger('reload');
-    });
-  });
+    console.log(errMsg)
+    if (errMsg) {
+      alert(errMsg);
+    } else (
+      $.post('/tweets', input).then(function () {
+        console.log("Outputting something.");
+        $('#tweets-container').trigger('reload');
+      }))
+  };
+
+  const dataValidator = (inputtedData) => {
+    const decodedData = decodeURI(inputtedData).trim();
+
+
+    console.log("inputted data>>>>", decodedData)
+    if (decodedData === "text=") {
+      return "Tweet is is not present";
+    }
+    if (inputtedData.length > 145) {
+      return "Tweet is too long"
+    }
+    return false;
+  };
+
+
+
+  //event listener that calls the submit tweet function
+  $('form').on('submit', function (event) {
+    const data = $(this).serialize();
+    //function that checks 
+    submitTweet(event, data);
+  })
 
   //get tweet from /tweets function
   const loadTweets = () => {
@@ -32,39 +61,12 @@ $(document).ready(function () {
         $('#tweets-container').empty()
         renderTweets(res)
       })
-  }
+  };
 
-  // causes the reload after a new tweet is posted
+  //causes the reload after a new tweet is posted
   $('#tweets-container').on('reload', loadTweets).trigger('reload');
 
-
-  const tweetData =
-    [
-      // {
-      //   "user": {
-      //     "name": "Newton",
-      //     "avatars": "https://i.imgur.com/73hZDYK.png",
-      //     "handle": "@SirIsaac"
-      //   },
-      //   "content": {
-      //     "text": "If I have seen further it is by standing on the shoulders of giants"
-      //   },
-      //   "created_at": 1616454275063
-      // },
-      // {
-      //   "user": {
-      //     "name": "Descartes",
-      //     "avatars": "https://i.imgur.com/nlhLi3I.png",
-      //     "handle": "@rd"
-      //   },
-      //   "content": {
-      //     "text": "Je pense , donc je suis"
-      //   },
-      //   "created_at": 1616540675064
-      // }
-    ]
-
-
+  //creates the tweet in HTML
   const createTweetElement = (tweetObject) => {
     const $tweet = $(`
     <article class="tweet-container">
