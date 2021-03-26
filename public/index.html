@@ -22,6 +22,7 @@
 
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
 
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/client.js"></script>
@@ -47,7 +48,7 @@
     </div>
     <br>
     <div class="account-name">
-      Your Name
+      <span>Mike <b id="Brierley">Brierley</b> </span>
     </div>
   </header>
 
@@ -56,7 +57,6 @@
   <main class="container">
 
     <section class="new-tweet">
-      <h2>Compose Tweet</h2>
       <form method="POST" action='/tweets'>
 
         <div class="isa_error_none">
@@ -82,7 +82,7 @@
       </form>
     </section>
 
-    <section id="tweets-container">
+    <section id="tweets-poster">
 
 
     </section>

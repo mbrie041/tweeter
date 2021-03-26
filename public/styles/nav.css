@@ -1,61 +1,76 @@
 /* Desktop styles */
+@media only screen and (min-width: 768px) {
+  nav {
+    display: flex;
+    height: 120px;
+    background-color: #4056A1;
+    background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
+    /* background-color: #d7ddcf; */
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+  }
+
+  nav > .left-header {
+    display: flex;
+    font-family: Bungee;
+    align-items: center;
+    font-size: xxx-large;
+    margin: 1.5em;
+    color: #ffffff;
+  }
+  nav > .right-header {
+    font-family: Source Sans Pro;
+    font-size: larger;
+    align-items: center;
+    margin: 1.5em;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav .arrow {
+    border: solid #d7ddcf;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+
+  nav .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+
+  .body-header {
+    display: flex;
+    padding-top: 120px;
+    height: 500px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    background-color: #4056a1;
+    background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
+  }
+
+  .body-header > .account-name {
+    font-size: xx-large;
+    font-weight: bold;
+    color: #ffffff;
+  }
+}
+
 @media only screen and (min-width: 1024px) {
+  nav {
+    background-color: #4056a1;
 
-nav {
-  display: flex;
-  height: 120px;
-  background-color: #4056A1;
-  justify-content: space-between;
-  position: fixed;
-  width: 100%;
-}
+  }
 
-nav > .left-header {
-  display: flex;
-  font-family: Bungee;
-  align-items: center;
-  font-size: xxx-large;
-  margin: 1.5em;
-  color: #FFFFFF;
-
-}
-nav > .right-header {
-  font-family: Source Sans Pro;
-  font-size: larger;
-  align-items: center;
-  margin: 1.5em;
-  color: #FFFFFF;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-nav .arrow {
-  border: solid #d7ddcf;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-}
-
-nav .down {
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-}
-
-.body-header {
-  display: flex;
-  padding-top: 120px;
-  height: 500px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: auto;
-  background-color:#d7ddcf;
-  background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
-} 
-
-.body-header > .account-name {
-  font-size: xx-large;
-  font-weight: bold;
-}
+  .body-header {
+    padding-top: 0px;
+    margin-top: 15rem;
+    margin-left: 10rem;
+    width: 500px;
+  }
 }

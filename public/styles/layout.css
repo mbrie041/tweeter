@@ -6,7 +6,9 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -14,27 +16,37 @@ html {
  * Global layout stuff
  */
 /* Desktop styles */
-@media only screen and (min-width: 1024px) {
-body {
-  color: #545149;
-  background-color: #f4f1ec;
-  font-size: 24px;
-  font-family: Source Sans Pro, sans-serif;
-}
+@media only screen and (min-width: 768px) {
+  body {
+    color: #545149;
+    background-color: #f4f1ec;
+    font-size: 24px;
+    font-family: Source Sans Pro, sans-serif;
+  }
 
-/*
+  /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
-.container {
-   display: flex;
-   width: 90%;
-   margin: auto;
-   color: #545149;
-   background-color: #f4f1ec;
-   align-items: center;
-   justify-content: center;
-   flex-direction: column;
- }
+  .container {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    color: #545149;
+    background-color: #f4f1ec;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 5rem;
+  }
 }
 
+@media only screen and (min-width: 1024px) {
+  body {
+    display: flex;
+  }
+  .container {
+  max-width: 1000px;
+  }
+
+}

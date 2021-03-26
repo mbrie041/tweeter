@@ -9,21 +9,16 @@ $(document).ready(function () {
 
   //tweet submitted input to /tweets
   const submitTweet = (input) => {
-    
     const errMsg = dataValidator(input);
 
-    // console.log("client.js>>>",input);
-    // console.log("client.js value>>>",decodeURI(input));
     if (errMsg === "Tweet is is not present") {
       $(".isa_error_none").slideDown("slow");
     }
     if (errMsg === "Tweet is too long") {
       $(".isa_error_long").slideDown("slow");
-    }
-    else {
-
+    } else {
       $.post("/tweets", $(input).serialize()).then(function () {
-        $("#tweets-container").trigger("reload");
+        $("#tweets-poster").trigger("reload");
       });
     }
   };
@@ -31,12 +26,12 @@ $(document).ready(function () {
   //validates the tweet data
   const dataValidator = (inputtedData) => {
     const data = inputtedData.elements["text"].value;
-    console.log("inputted data >>>",data)
-     if (!data) {
-     return "Tweet is is not present";
+    console.log("inputted data >>>", data);
+    if (!data) {
+      return "Tweet is is not present";
     }
-    if (data.length > 140) { //140 + 5 for text=
-      return "Tweet is too long"; 
+    if (data.length > 140) {
+      return "Tweet is too long";
     }
     return false;
   };
@@ -55,13 +50,13 @@ $(document).ready(function () {
       url: "/tweets",
       method: "GET",
     }).then((res) => {
-      $("#tweets-container").empty();
+      $("#tweets-poster").empty();
       renderTweets(res);
     });
   };
 
   //causes the reload after a new tweet is posted
-  $("#tweets-container").on("reload", loadTweets).trigger("reload");
+  $("#tweets-poster").on("reload", loadTweets).trigger("reload");
 
   //runs input against cross site scripting
   const escape = function (str) {
@@ -72,6 +67,7 @@ $(document).ready(function () {
 
   //creates the tweet in HTML
   const createTweetElement = (tweetObject) => {
+    const relativeDate = moment(new Date(tweetObject.created_at)).fromNow();
     const $tweet = `<article class="tweet-container">
     <header class="tweet-container-header">
       <div class="left-side">
@@ -85,7 +81,7 @@ $(document).ready(function () {
     </div>
 
     <footer class="tweet-container-footer">
-      <div class="left-side"><span>${new Date(tweetObject.created_at).toLocaleString()}</span></div>
+      <div class="left-side"><span>${relativeDate}</span></div>
       <div class="right-side">
         <img class="icon" src=https://raw.githubusercontent.com/mpizzaca/tweeter/master/public/images/flag.png>
         <img class="icon" src=https://raw.githubusercontent.com/mpizzaca/tweeter/master/public/images/retweet.png>
@@ -100,7 +96,7 @@ $(document).ready(function () {
   const renderTweets = (givenArray) => {
     for (let tweet of givenArray) {
       const $tweet = createTweetElement(tweet);
-      $("#tweets-container").prepend($tweet);
+      $("#tweets-poster").prepend($tweet);
     }
   };
   renderTweets(tweetData);
