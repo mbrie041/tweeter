@@ -8,30 +8,34 @@ $(document).ready(function () {
   const tweetData = [];
 
   //tweet submitted input to /tweets
-  const submitTweet = (event, input) => {
-    event.preventDefault();
+  const submitTweet = (input) => {
+    
     const errMsg = dataValidator(input);
 
-    console.log(errMsg);
+    // console.log("client.js>>>",input);
+    // console.log("client.js value>>>",decodeURI(input));
     if (errMsg === "Tweet is is not present") {
       $(".isa_error_none").slideDown("slow");
     }
     if (errMsg === "Tweet is too long") {
       $(".isa_error_long").slideDown("slow");
     }
-    else
-      $.post("/tweets", input).then(function () {
+    else {
+
+      $.post("/tweets", $(input).serialize()).then(function () {
         $("#tweets-container").trigger("reload");
       });
+    }
   };
 
   //validates the tweet data
   const dataValidator = (inputtedData) => {
-    const decodedData = decodeURI(inputtedData).trim();
-    if (decodedData === "text=" || !inputtedData) {
+    const data = inputtedData.elements["text"].value;
+    console.log("inputted data >>>",data)
+     if (!data) {
      return "Tweet is is not present";
     }
-    if (inputtedData.length > 145) { //140 + 5 for text=
+    if (data.length > 140) { //140 + 5 for text=
       return "Tweet is too long"; 
     }
     return false;
@@ -39,9 +43,10 @@ $(document).ready(function () {
 
   //event listener that calls the submit tweet function
   $("form").on("submit", function (event) {
-    const data = $(this).serialize();
+    // console.log("data", data.length)
     //function that checks
-    submitTweet(event, data);
+    event.preventDefault();
+    submitTweet(this);
   });
 
   //get tweet from /tweets function
@@ -80,7 +85,7 @@ $(document).ready(function () {
     </div>
 
     <footer class="tweet-container-footer">
-      <div class="left-side"><span>${escape(tweetObject.created_at)}</span></div>
+      <div class="left-side"><span>${new Date(tweetObject.created_at).toLocaleString()}</span></div>
       <div class="right-side">
         <img class="icon" src=https://raw.githubusercontent.com/mpizzaca/tweeter/master/public/images/flag.png>
         <img class="icon" src=https://raw.githubusercontent.com/mpizzaca/tweeter/master/public/images/retweet.png>

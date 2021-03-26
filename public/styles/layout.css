@@ -13,7 +13,8 @@ html {
 /*
  * Global layout stuff
  */
-
+/* Desktop styles */
+@media only screen and (min-width: 1024px) {
 body {
   color: #545149;
   background-color: #f4f1ec;
@@ -35,4 +36,5 @@ body {
    justify-content: center;
    flex-direction: column;
  }
+}
 

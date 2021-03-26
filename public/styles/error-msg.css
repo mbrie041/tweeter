@@ -1,5 +1,6 @@
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
-
+/* Desktop styles */
+@media only screen and (min-width: 1024px) {
 .isa_info,
 .isa_success,
 .isa_warning,
@@ -36,4 +37,5 @@
   margin: 10px 22px;
   font-size: 2em;
   vertical-align: middle;
+}
 }

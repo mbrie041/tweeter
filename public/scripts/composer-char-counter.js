@@ -14,7 +14,7 @@ $(document).ready(function () {
     $(".isa_error_long").slideUp("slow");
     let counterText = 140 - ((this).value).length;
     let counterLocation =  $(this).parent().parent().find('.counter');
-
+    console.log(((this).value).length)
     counterLocation.text(counterText);
 
     if (counterText >= 0) {

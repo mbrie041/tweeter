@@ -1,3 +1,5 @@
+/* Desktop styles */
+@media only screen and (min-width: 1024px) {
 .tweet-container {
   border-style: groove;
   width: 960px;
@@ -54,7 +56,8 @@ display: none;
 .tweet-text {
   display: flex;
   justify-content: center;
-  height: 70px;
+  overflow-wrap: anywhere;
+  height: 90px;
   border-block: inherit;
   border-top-width: 0px;
   margin-right: 5px;
@@ -90,4 +93,5 @@ display: none;
   height: 13px;
   margin-top: 4px;
   margin-right: 6px;
+}
 }
