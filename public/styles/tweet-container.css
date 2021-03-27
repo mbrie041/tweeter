@@ -1,103 +1,108 @@
-/* Desktop styles */
-@media only screen and (min-width: 768px) {
-  .tweet-container {
-    border-style: groove;
-    width: 100%;
-    margin-top: 1em;
-    margin-bottom: 1em;
-  }
+/* default styles */
 
-  .tweet-container:hover {
-    border-style: solid;
-    box-shadow: 5px 10px #888888;
-    width: 100%;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    font-weight: bold;
-  }
+/* Database Tweet display */
+.tweet-container {
+  border-style: groove;
+  width: 100%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
 
-  /* Header CSS */
-  .tweet-container-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+.tweet-container:hover {
+  border-style: solid;
+  box-shadow: 5px 10px #888888;
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
 
-  .tweet-container-header > .left-side {
-    display: flex;
-    flex-direction: row;
-  }
+/* Header CSS */
+.tweet-container-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
-  .tweet-container-header > .right-side {
-    margin-top: 10px;
-    margin-right: 10px;
-  }
+.tweet-container-header > .left-side {
+  display: flex;
+  flex-direction: row;
+}
 
-  .tweet-container:hover .tweet-container-header .right-side {
-    display: block;
-  }
+.tweet-container-header > .right-side {
+  margin-top: 10px;
+  margin-right: 10px;
+}
 
-  .tweet-container-header > .right-side {
-    display: none;
-  }
-  /* User info */
-  .avatar {
-    margin-left: 20px;
-    margin-top: 20px;
-  }
+.tweet-container:hover .tweet-container-header .right-side {
+  display: block;
+}
 
-  .username {
-    margin-top: 40px;
-    margin-left: 12px;
-  }
-  #Brierley {
-    font-weight: initial;
-  }
+.tweet-container-header > .right-side {
+  display: none;
+}
+/* User info */
+.avatar {
+  margin-left: 20px;
+  margin-top: 20px;
+}
 
-  /* Body CSS */
-  .tweet-text {
-    display: flex;
-    justify-content: center;
-    overflow-wrap: anywhere;
-    height: 90px;
-    border-block: inherit;
-    border-top-width: 0px;
-    margin-right: 5px;
-    margin-left: 5px;
-  }
+.username {
+  margin-top: 40px;
+  margin-left: 12px;
+}
+#Brierley {
+  font-weight: initial;
+}
 
-  /* Footer CSS */
-  .tweet-container-footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+/* Body CSS */
+.tweet-text {
+  display: flex;
+  justify-content: center;
+  overflow-wrap: anywhere;
+  height: 90px;
+  border-block: inherit;
+  border-top-width: 0px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
 
-  .tweet-container-footer > .left-side {
-    display: flex;
-    flex-direction: row;
-    font-size: initial;
-    margin-left: 20px;
-    margin-bottom: 10px;
-    margin-top: 8px;
-  }
+/* Footer CSS */
+.tweet-container-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
-  .tweet-container-footer > .right-side {
-    display: flex;
-    flex-direction: row;
-    margin-right: 20px;
-  }
+.tweet-container-footer > .left-side {
+  display: flex;
+  flex-direction: row;
+  font-size: initial;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  margin-top: 8px;
+}
 
-  .right-side > .icon {
-    display: flex;
-    width: 13px;
-    height: 13px;
-    margin-top: 4px;
-    margin-right: 6px;
-  }
+.tweet-container-footer > .right-side {
+  display: flex;
+  flex-direction: row;
+  margin-right: 20px;
+}
+
+.right-side > .icon {
+  display: flex;
+  width: 13px;
+  height: 13px;
+  margin-top: 4px;
+  margin-right: 6px;
 }
 
 /* Tweets-Poster */
 #tweets-poster {
   width: 90%;
 }
+
+/* 780px styles */
+@media only screen and (min-width: 768px) {
+}
+

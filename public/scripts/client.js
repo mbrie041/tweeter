@@ -1,13 +1,7 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
 $(document).ready(function () {
   const tweetData = [];
 
-  //tweet submitted input to /tweets
+  //checks inputted data and posts
   const submitTweet = (input) => {
     const errMsg = dataValidator(input);
 
@@ -26,7 +20,6 @@ $(document).ready(function () {
   //validates the tweet data
   const dataValidator = (inputtedData) => {
     const data = inputtedData.elements["text"].value;
-    console.log("inputted data >>>", data);
     if (!data) {
       return "Tweet is is not present";
     }
@@ -38,13 +31,11 @@ $(document).ready(function () {
 
   //event listener that calls the submit tweet function
   $("form").on("submit", function (event) {
-    // console.log("data", data.length)
-    //function that checks
     event.preventDefault();
     submitTweet(this);
   });
 
-  //get tweet from /tweets function
+  //function that gets the posted input after submitTweet reloads
   const loadTweets = () => {
     $.ajax({
       url: "/tweets",
@@ -67,7 +58,7 @@ $(document).ready(function () {
 
   //creates the tweet in HTML
   const createTweetElement = (tweetObject) => {
-    const relativeDate = moment(new Date(tweetObject.created_at)).fromNow();
+    const relativeDate = moment(new Date(tweetObject.created_at)).fromNow(); //uses moment to add flair to the date
     const $tweet = `<article class="tweet-container">
     <header class="tweet-container-header">
       <div class="left-side">

@@ -1,24 +1,49 @@
-/* Desktop styles */
-@media only screen and (min-width: 768px) {
-  nav {
-    display: flex;
-    height: 120px;
-    background-color: #4056A1;
-    background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
-    /* background-color: #d7ddcf; */
-    justify-content: space-between;
-    position: fixed;
-    width: 100%;
-  }
+/* default styles */
 
-  nav > .left-header {
-    display: flex;
-    font-family: Bungee;
-    align-items: center;
-    font-size: xxx-large;
-    margin: 1.5em;
-    color: #ffffff;
-  }
+/* navigation bar */
+nav {
+  display: flex;
+  height: 120px;
+  background-color: #4056a1;
+  background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+}
+
+nav > .left-header {
+  display: flex;
+  font-family: Bungee;
+  align-items: center;
+  font-size: xxx-large;
+  margin: 1.5em;
+  color: #ffffff;
+}
+nav > .right-header {
+  display: none;
+}
+
+/* Account info*/
+.body-header {
+  display: flex;
+  padding-top: 120px;
+  height: 500px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  background-color: #4056a1;
+  background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
+}
+
+.body-header > .account-name {
+  font-size: xx-large;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* 780px styles */
+@media only screen and (min-width: 768px) {
   nav > .right-header {
     font-family: Source Sans Pro;
     font-size: larger;
@@ -41,32 +66,16 @@
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
   }
-
-  .body-header {
-    display: flex;
-    padding-top: 120px;
-    height: 500px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: auto;
-    background-color: #4056a1;
-    background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
-  }
-
-  .body-header > .account-name {
-    font-size: xx-large;
-    font-weight: bold;
-    color: #ffffff;
-  }
 }
 
+/* 1024pxpx styles */
 @media only screen and (min-width: 1024px) {
+  
+  /* navigation bar */
   nav {
     background-color: #4056a1;
-
   }
-
+  /* Account info*/
   .body-header {
     padding-top: 0px;
     margin-top: 15rem;
