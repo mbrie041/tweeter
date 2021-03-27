@@ -33,6 +33,8 @@ $(document).ready(function () {
   $("form").on("submit", function (event) {
     event.preventDefault();
     submitTweet(this);
+    this.reset();
+    
   });
 
   //function that gets the posted input after submitTweet reloads
