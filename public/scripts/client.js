@@ -11,9 +11,11 @@ $(document).ready(function () {
     if (errMsg === "Tweet is too long") {
       $(".isa_error_long").slideDown("slow");
     } else {
-      $.post("/tweets", $(input).serialize()).then(function () {
+      $.post("/tweets", $(input).serialize()).then( () => {
         $("#tweets-poster").trigger("reload");
       });
+      input.reset();
+      input.elements["counter"].value = 140;
     }
   };
 
@@ -28,12 +30,12 @@ $(document).ready(function () {
     }
     return false;
   };
-
+ 
   //event listener that calls the submit tweet function
   $("form").on("submit", function (event) {
     event.preventDefault();
     submitTweet(this);
-    this.reset();
+
     
   });
 
